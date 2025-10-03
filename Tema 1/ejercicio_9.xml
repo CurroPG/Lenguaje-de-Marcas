@@ -1,0 +1,18 @@
+<? xml version="1.0" encoding="UTF-8"?>
+
+<catalogo xlmns:dc="http://purl.org/dc/elements/1.1/">
+    <libro>
+        <dc:titulo>El Quijote</dc:titulo>
+        <dc:autor>Miguel de Cervantes</dc:autor>
+        <dc:fecha>1605</dc:fecha>
+        <dc:editorial>Francisco de Robles</dc:editorial>
+        <dc:idioma>español</dc:idioma>
+    </libro>
+    <libro>
+        <dc:titulo>Cien años de soledad</dc:titulo>
+        <dc:autor>Gabriel García Márquez</dc:autor>
+        <dc:fecha>1967</dc:fecha>
+        <dc:editorial>Editorial Sudamericana</dc:editorial>
+        <dc:idioma>español</dc:idioma>
+    </libro>
+</catalogo>
