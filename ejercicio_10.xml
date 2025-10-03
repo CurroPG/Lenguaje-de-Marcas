@@ -1,0 +1,25 @@
+<? xml version="1.0" encoding="UTF-8"?>
+
+<agenda xmlns:dir="http://ejercicio10.com/direccion">
+    <contacto>
+        <nombre>Juan Pérez</nombre>
+        <telefono tipo="móvil">600 123 456</telefono>
+        <dir:direccion>
+            <dir:calle>Calle Mayor 123</dir:calle>
+            <dir:ciudad>Madrid</dir:ciudad>
+            <dir:codigo_postal>28013</dir:codigo_postal>
+            <dir:pais>España</dir:pais>
+        </dir:direccion>
+    </contacto>
+
+    <contacto>
+        <nombre>Laura García</nombre>
+        <telefono tipo="fijo">911 654 321</telefono>
+        <dir:direccion>
+            <dir:calle>Avenida del Sol 45</dir:calle>
+            <dir:ciudad>Barcelona</dir:ciudad>
+            <dir:codigo_postal>08001</dir:codigo_postal>
+            <dir:pais>España</dir:pais>
+        </dir:direccion>
+    </contacto>
+</agenda>
