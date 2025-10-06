@@ -1,42 +1,36 @@
 <? xml version="1.0" encoding="UTF-8"?>
 
-<banco xmlns:cta = "http://BancodeEspaña.com/cuenta" xmlns:dir = "http://BancodeEspaña.com/direccion">
+<banco>
     <sucursal id="01">
-        <nombre>Banco Central</nombre>
-        <dir:direccion>Calle Principal 1, Madrid</dir:direccion>
-        <cta:cuenta id= "01A">
-            <cta:cliente>
-                <cta:nombre>Benito Pérez Galdos</cta:nombre>
-                <cta:saldo>1500.75</cta:saldo>
-                <cta:moneda>EUR</cta:moneda>
-            </cta:cliente>
-        </cta:cuenta>
+        <cuenta id= "01A">
+            <cliente DNI="99221144D">
+                <nombre>Benito Pérez Galdos</nombre>
+                <saldo>1500.75</saldo>
+                <moneda>EUR</moneda>
+            </cliente>
+        </cuenta>
     </sucursal>
     <sucursal id="02">
-        <nombre>Banco del Sol</nombre>
-        <dir:direccion>Avenida del Sol 45, Barcelona</dir:direccion>
-        <cta:cuenta id= "02B">
-            <cta:cliente>
-                <cta:nombre>Curro Otero Galán</cta:nombre>
-                <cta:saldo>2500.00</cta:saldo>
-                <cta:moneda>USD</cta:moneda>
-            </cta:cliente>
-            <cta:cliente>
-                <cta:nombre>Paco Ibañez Montero</cta:nombre>
-                <cta:saldo>700.00</cta:saldo>
-                <cta:moneda>EUR</cta:moneda>
-            </cta:cliente>
-        </cta:cuenta>
+        <cuenta id= "02B">
+            <cliente DNI="11447799R">
+                <nombre>Curro Otero Galán</nombre>
+                <saldo>2500.00</saldo>
+                <moneda>USD</moneda>
+            </cliente>
+            <cliente DNI="55667788P">
+                <nombre>Paco Ibañez Montero</nombre>
+                <saldo>700.00</saldo>
+                <moneda>EUR</moneda>
+            </cliente>
+        </cuenta>
     </sucursal>
     <sucursal id="03">
-        <nombre>Banco Santander</nombre>
-        <dir:direccion>Paseo de Pereda, 9</dir:direccion>
-        <cta:cuenta id= "03C">
-            <cta:cliente>
-                <cta:nombre>Pepe López Galindo</cta:nombre>
-                <cta:saldo>3200.50</cta:saldo>
-                <cta:moneda>EUR</cta:moneda>
-            </cta:cliente>
-        </cta:cuenta>
+        <cuenta id= "03C">
+            <cliente DNI="11223344K">
+                <nombre>Pepe López Galindo</nombre>
+                <saldo>3200.50</saldo>
+                <moneda>EUR</moneda>
+            </cliente>
+        </cuenta>
     </sucursal>
 </banco>
