@@ -1,5 +1,7 @@
 <? xml version="1.0" encoding="UTF-8"?>
 
+<!DOCTYPE banco SYSTEM "banco.dtd">
+
 <banco>
     <sucursal id="01">
         <cuenta id= "01A">
