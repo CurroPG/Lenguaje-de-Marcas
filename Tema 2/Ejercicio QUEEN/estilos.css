@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background: #f0f0f0;
+    height: 100%;
+    box-sizing: border-box;
+    margin: none;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    text-align: center;
+    padding: 1rem;
+    align-items: vertical;
+    align-items: horizontal;
+}
+
+h1 {
+    margin: none;
+    text-align: center;
+    font-family: Georgia, serif;
+    color: #2c3e50;
+}
+
+main {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    align-content: center;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.imagen-banda {
+    text-align: center;
+    margin-bottom: 20px;
+    border-image-width: 100%;
+    border-radius: 10px;
+}
+
+.lista-integrantes {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.tabla-exitos {
+    border: collapse;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+h2 {
+    font-family: Georgia, serif;
+    color: #2c3e50;    
+}
+
+footer {
+    color: #7F8C8D;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
