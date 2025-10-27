@@ -7,21 +7,19 @@ body {
     margin: none;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 header {
-    display: flex;
     text-align: center;
     padding: 1rem;
-    align-items: vertical;
-    align-items: horizontal;
+    display: flex;
+    justify-content: center;
 }
 
 h1 {
-    margin: none;
+    margin: 0;
     text-align: center;
-    font-family: Georgia, serif;
-    color: #2c3e50;
 }
 
 main {
@@ -40,20 +38,53 @@ main {
     border-radius: 10px;
 }
 
+.logo {
+    border-radius: 10px;
+}
+
 .lista-integrantes {
     list-style: disc;
+}
+
+.lista {
     padding-left: 20px;
 }
 
-.tabla-exitos {
-    border: collapse;
-    margin-bottom: 20px;
-    align-items: center;
-}
-
-h2 {
+h1, h2 {
     font-family: Georgia, serif;
     color: #2c3e50;    
+}
+
+.tabla {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    margin: 0 auto;
+}
+
+.tabla th, .tabla td {
+    border: 1px solid #ddd;
+}
+
+.tabla th {
+    background: #2C3E50;
+    color: #fff;
+    text-align: center;
+}
+
+.tabla td {
+    padding: 10px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.enlace-web a {
+    color: #E74C3C;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.enlace-web a:hover {
+    color: #C0392B;
 }
 
 footer {
