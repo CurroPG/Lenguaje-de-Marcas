@@ -27,6 +27,12 @@ body{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background: #2C3E50;
+}
+
+.logo {
+    height: 100px;
+    width: auto;
 }
 
 .titulo {
@@ -34,9 +40,31 @@ body{
     color: #2C3E50;
 }
 
+/* Menú horizontal con flex */
+.menu {
+    list-style: none; /*Eliminamos las viñetas*/
+    display: flex;    /*Colocamos los elementos en filas*/
+    gap: 1rem;        /*Espacia entre los ítems*/
+    margin: 0;
+    padding: 0;
+}
+
+/*Estillo básico de los enlaces del menú*/
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    
+}
+
+/*Pseudoclase hover: cambiamos el estilo al situar el cursor*/
+.menu a:hover {
+    color: #e74c3c;
+}
+
 #contenido-principal {
     padding: 1rem;
-    flex-grow: 1;
+    flex-grow: 1; /*Aplicamos factor de crecimiento para "empujar" al footer*/
 }
 
 .tarjeta {
@@ -46,6 +74,7 @@ body{
     margin: 1.5rem auto;
     padding: 1.5rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    border: 1px solid black;
 }
 
 /* Listas y layout simple */
@@ -98,5 +127,5 @@ body{
     padding: 1rem;
     color: #7f8c8d;
     font-size: 14px;
-    background: #ecf0f1;
+    background: #2C3E50;
 }
