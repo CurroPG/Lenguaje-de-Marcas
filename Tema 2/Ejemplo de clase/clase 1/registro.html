@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="registro.css">
+    <title>Registrar</title>
+</head>
+
+<body>
+    <!-- Cabecera: Regístrate -->
+    <header class="cabecera">
+        <div class="titulo">
+            <h1>Regístrate</h1>
+        </div>
+    </header>
+
+    <!-- Formulario -->
+    <main class="formulario">
+        <div class="campos">
+
+            <h2>Registro de usuario</h2>
+            <form name="register" action="registro.html" method="get">
+                <!-- Campo de nombre -->
+                <label for="nombre">Nombre:</label>
+                <input name="name" type="text" id="nombre" required>
+                <!-- Campo de apellidos -->
+                <label for="apellidos">Apellidos:</label>
+                <input name="surnames" type="text" id="apellidos" required>
+                <!-- Campo de password -->
+                <label for="clave">Contraseña:</label>
+                <input type="password" name="pass" id="clave" minlength="6" maxlength="12" required>
+                <!-- Campo número -->
+                <label for="edad">Edad:</label>
+                <input type="number" name="age" id="edad" min="0" required>
+                <!-- Campo DNI con pattern -->
+                <label for="dni">DNI:</label>
+                <input type="text" name="id" id="dni" pattern="[0-9]{8}[A-Za-z]{1}" required>
+                <button type="submit">Registrar</button>
+            </form>
+
+        </div>
+    </main>
+    
+</body>
+</html>

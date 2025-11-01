@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contacto.css">
+    <title>Contacto</title>
+</head>
+
+<body>
+    <header class="cabecera">
+        <h1>Contacto</h1>
+    </header>
+
+    <main id="contenido-principal">
+        <h2>Conócenos</h2>
+        <div>
+            <pre class="persona">Correo de contacto: info.gamezone@gmail.com
+    Persona de contacto: Pepe Gómez Villalba (RRHH)</pre>
+
+        </div>
+        <div class="formulario">
+            <h2>Deja tu comentario</h2>
+            <form action="contacto.html" name="contact" method="get">
+                <label for="nombre">Nombre:</label>
+                <input name="name" type="text" id="nombre" required>    
+                <label for="apellidos">Apellidos:</label>
+                <input name="surnames" type="text" id="apellidos" required>
+                <label for="correo">Correo electrónico:</label>
+                <input type="text" name="mail" id="correo" required>
+                <label for="comentario">Comentario</label>
+                <input name="comment" type="text" id="comentario" required>
+            </form>     
+        </div>
+    </main>
+</body>
+</html>
