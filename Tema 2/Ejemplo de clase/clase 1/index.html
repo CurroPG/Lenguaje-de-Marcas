@@ -92,6 +92,43 @@
                 <button type="submit">Buscar</button>
             </form>
         </section>
+        <!-- Formulario de Contacto -->
+        <section class="tarjeta">
+            <form name="contacto" action="bababa.html" method="post" autocomplete="off">
+                <!-- Lista despegable -->
+                <label for="categoria">Categoría de juego:</label>
+                <select name="categoria" id="categoria">
+                    <option selected disabled>-Selecciona categoria-</option>
+                    <option value="rol">Rol</option>
+                    <option value="aventura">Aventura</option>
+                    <option value="deportes">Deportes</option>
+                </select>
+
+                <!-- Radio y checkbox -->
+                <p>Plataforma:</p>
+                <label>
+                    <input type="radio" name="plataforma" value="pc" required>PC
+                </label>
+                <label>
+                    <input type="radio" name="plataforma" value="ps5">PS5
+                </label>
+                
+                <p>Suscribirse a noticias:</p>
+                <label><input type="checkbox" name="suscripcion" checked>Sí</label>
+                
+                <!-- hidden se utiliza para enviar datos no visibles para el usuario -->
+                <input type="hidden" name="product-id" value="1234">
+
+                <!-- Text area -->
+                <label for="mensaje">Deja aquí tu mensaje:</label>
+                <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+
+                <!-- Botones -->
+                <input type="submit" value="Contactar">
+                <input type="reset" value="Limpiar formulario">
+            
+            </form>
+        </section>
 
     </main>
 
