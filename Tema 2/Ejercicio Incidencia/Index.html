@@ -9,19 +9,73 @@
 
 <body>
     <header class="cabecera">
-        <img class="logo" src="IAT-LOGOTIPO.jpg" alt="Logo instituto">
+        <img class="logo" src="imagenes/IAT-LOGOTIPO.jpg" alt="Logo instituto">
     </header>
 
     <main class="contenido">
 
+        <form class="formulario-incidencias" name="incidencias" method="get">
+            <fieldset>
+            <legend>Nueva incidencia</legend>
+                
+                <div class="elemento-formulario">
+                    <label for="profesor">Profesor *:</label>
+                    <input type="text" id="profesor" placeholder="Escribe su nombre aquí"  required>
+                </div>
+                <div class="elemento-formulario">
+                    <label for="correo">Correo electrónico *:</label>
+                    <input type="email" id="correo" placeholder="Escribe tu correo aquí" required>
+                </div>
+                <div class="elemento-formulario">
+                    <label for="departamento">Departamento *:</label>
+                    <select type="text" id="departamento" required>
+                        <option selected disabled>Seleccione departamento</option>
+                        <option value="">Informática</option>
+                        <option value="">Base de Datos</option>
+                        <option value="">Programación</option>
+                        <option value="">Sistemas Informáticos</option>
+                        <option value="">Lenguaje de Marcas</option>
+                        <option value="">IPE1</option>
+                        <option value="">Digitalización</option>
+                        <option value="">Sostenibilidad</option>
+                    </select>
+                </div>
+                <div class="elemento-formulario">
+                    <label for="aula">Aula *:</label>
+                    <input type="text" id="aula" placeholder="Indique el aula de la incidencia" required>
+                </div>
+                <div class="elemento-formulario">
+                    <label for="dia">Día de la incidencia *:</label>
+                    <input type="date" id="dia"  required>
+                </div>
+                <div class="elemento-formulario">
+                    <label for="hora">Hora de la incidencia *:</label>
+                    <input type="time" id="hora" required>
+                </div>
+                <div class="elemento-formulario">
+                    <label for="descripcion">Descripción de la incidencia *:</label>
+                    <textarea id="descripcion"></textarea required>
+                </div>
+                <div class="elemento-formulario">
+                    <label for="imagen-incidencia">Imagen de la incidencia(opcional):</label>
+                    <input type="image" id="imagen-incidencia">
+                </div>
+                <div class="elemento-formulario">
+                    <input type="submit" value="Enviar incidencia">
+                    <input type="reset" value="Borrar formulario">
+                </div>
+            </legend>
+            </fieldset>
+        </form>
+
     </main>
 
     <footer class="pie">
-        <img class="facebook" href="icons8-facebooc-48.png"><a href="https://www.instagram.com/cpifpalanturing/"></a>
-        <img class="twitter" href="icons8-twitter-48.png">
-        <img class="instagram" href="icons8-instagram-48.png">
-        <img class="youtube" href="icons8-youtube-48.png">
-        <img class="web" href="icons8-website-48.png">
+        <a href="https://www.facebook.com/cpifpalanturing"><img class="facebook" href="imagenes/Facebook.png" alt="Face"></a>
+        <a href="https://x.com/cpifpalanturing"><img class="twitter" href="imagenes/Twitter.png" alt="X"></a>
+        <a href="https://www.instagram.com/cpifpalanturing/"><img class="instagram" href="imagenes/Insta.png"alt="Insta"></a>
+        <a href="https://www.youtube.com/@cpifpalanturing"><img class="youtube" href="imagenes/Youtube.png" alt="Yout"></a>
+        <a href="https://fpalanturing.es"><img class="web" href="imagenes/WWW.png" alt="WebSite"></a>
     </footer>
 </body>
 </html>
