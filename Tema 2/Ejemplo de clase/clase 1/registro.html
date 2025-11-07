@@ -20,23 +20,40 @@
         <div class="campos">
 
             <h2>Registro de usuario</h2>
-            <form name="register" action="registro.html" method="get">
-                <!-- Campo de nombre -->
-                <label for="nombre">Nombre:</label>
-                <input name="name" type="text" id="nombre" required>
-                <!-- Campo de apellidos -->
-                <label for="apellidos">Apellidos:</label>
-                <input name="surnames" type="text" id="apellidos" required>
-                <!-- Campo de password -->
-                <label for="clave">Contraseña:</label>
-                <input type="password" name="pass" id="clave" minlength="6" maxlength="12" required>
-                <!-- Campo número -->
-                <label for="edad">Edad:</label>
-                <input type="number" name="age" id="edad" min="0" required>
-                <!-- Campo DNI con pattern -->
-                <label for="dni">DNI:</label>
-                <input type="text" name="id" id="dni" pattern="[0-9]{8}[A-Za-z]{1}" required>
-                <button type="submit">Registrar</button>
+            
+            <form name="register" action="registro.html" method="get" class="form-registro">
+                <fieldset>
+                    <legend>Datos de registro</legend>
+                    <!-- Campo de nombre -->
+                    <div class="form-row">
+                        <label for="nombre">Nombre:</label>
+                        <input name="name" type="text" id="nombre" required>
+                    </div>
+                    <!-- Campo de apellidos -->
+                    <div class="form-row">
+                        <label for="apellidos">Apellidos:</label>
+                        <input name="surnames" type="text" id="apellidos" required>
+                    </div>
+                    <!-- Campo de password -->
+                    <div class="form-row">
+                        <label for="clave">Contraseña:</label>
+                        <input type="password" name="pass" id="clave" minlength="6" maxlength="12" required>
+                    </div class="form-row">
+                    <!-- Campo número -->
+                    <div class="form-row">
+                        <label for="edad">Edad:</label>
+                        <input type="number" name="age" id="edad" min="0" required>
+                    </div>
+                    <!-- Campo DNI con pattern -->
+                     <div class="form-row">
+                        <label for="dni">DNI/NIE:</label>
+                        <input type="text" name="id" id="dni" pattern="([X-Zx-z|[0-9])[0-9]{7}[A-Za-z]" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="submit" value="Registrar">
+                        <input type="reset" value="Reestablecer">
+                    </div>
+                </fieldset> 
             </form>
 
         </div>

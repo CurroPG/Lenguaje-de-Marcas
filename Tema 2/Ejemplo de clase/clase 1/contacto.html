@@ -19,18 +19,25 @@
     Persona de contacto: Pepe Gómez Villalba (RRHH)</pre>
 
         </div>
-        <div class="formulario">
-            <h2>Deja tu comentario</h2>
-            <form action="contacto.html" name="contact" method="get">
+        <h2>Deja tu comentario</h2>
+        <div class="formulario"></div>
+            <form action="contacto.html" name="contact" method="post" autocomplete="off">
                 <label for="nombre">Nombre:</label>
-                <input name="name" type="text" id="nombre" required>    
+                <input name="name" type="text" id="nombre" required>
+                <br>
                 <label for="apellidos">Apellidos:</label>
                 <input name="surnames" type="text" id="apellidos" required>
+                <br>
                 <label for="correo">Correo electrónico:</label>
                 <input type="text" name="mail" id="correo" required>
-                <label for="comentario">Comentario</label>
-                <input name="comment" type="text" id="comentario" required>
-            </form>     
+                <br>
+                <label for="comentario">Deja aquí tu comentario:</label>
+                <br>
+                <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+            </form>
+        </div>
+        <div class="boton">
+            <input type="submit" value="Contactar">
         </div>
     </main>
 </body>
