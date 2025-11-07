@@ -1,0 +1,103 @@
+*{
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+}
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.logo {
+    height: 110px;
+    width: 300px;
+}
+
+.contenido {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+fieldset{
+    border: solid darkgoldenrod;
+    border-radius: 7px;
+}
+
+.formulario-incidencias {
+    background-color: #F4F1ED;
+    color: firebrick;
+    width: 400px;
+}
+
+legend {
+    color: darkblue;
+    font-weight: bold;
+}
+
+.elemento-formulario {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    align-items: center;
+}
+
+.elemento-formulario input[type="file"] {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.elemento-formulario:nth-last-child(2) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.elemento-formulario input[type="submit"],
+.elemento-formulario input[type="reset"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+} 
+
+.pie {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 5px;    
+    margin-top: 10px;
+}
+
+h3 {
+    color: #F7C600;
+}
+
+.enlaces {
+    color: white;
+    text-decoration: none;
+}
+
+.imagenes {
+    width: 48px;
+    height: 48px;
+    margin: 0 5px;
+}

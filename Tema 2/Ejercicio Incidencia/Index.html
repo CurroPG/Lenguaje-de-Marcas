@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Curro Portillo Guerrero">
+    <link rel="stylesheet" href="estilos.css">
     <title>Incidencias</title>
 </head>
 
@@ -14,68 +15,78 @@
 
     <main class="contenido">
 
-        <form class="formulario-incidencias" name="incidencias" method="get">
+        <form class="formulario-incidencias" name="incidencias" method="post" action="procesarincidencia.php">
             <fieldset>
-            <legend>Nueva incidencia</legend>
-                
-                <div class="elemento-formulario">
-                    <label for="profesor">Profesor *:</label>
-                    <input type="text" id="profesor" placeholder="Escribe su nombre aquí"  required>
-                </div>
-                <div class="elemento-formulario">
-                    <label for="correo">Correo electrónico *:</label>
-                    <input type="email" id="correo" placeholder="Escribe tu correo aquí" required>
-                </div>
-                <div class="elemento-formulario">
-                    <label for="departamento">Departamento *:</label>
-                    <select type="text" id="departamento" required>
-                        <option selected disabled>Seleccione departamento</option>
-                        <option value="">Informática</option>
-                        <option value="">Base de Datos</option>
-                        <option value="">Programación</option>
-                        <option value="">Sistemas Informáticos</option>
-                        <option value="">Lenguaje de Marcas</option>
-                        <option value="">IPE1</option>
-                        <option value="">Digitalización</option>
-                        <option value="">Sostenibilidad</option>
-                    </select>
-                </div>
-                <div class="elemento-formulario">
-                    <label for="aula">Aula *:</label>
-                    <input type="text" id="aula" placeholder="Indique el aula de la incidencia" required>
-                </div>
-                <div class="elemento-formulario">
-                    <label for="dia">Día de la incidencia *:</label>
-                    <input type="date" id="dia"  required>
-                </div>
-                <div class="elemento-formulario">
-                    <label for="hora">Hora de la incidencia *:</label>
-                    <input type="time" id="hora" required>
-                </div>
-                <div class="elemento-formulario">
-                    <label for="descripcion">Descripción de la incidencia *:</label>
-                    <textarea id="descripcion"></textarea required>
-                </div>
-                <div class="elemento-formulario">
-                    <label for="imagen-incidencia">Imagen de la incidencia(opcional):</label>
-                    <input type="image" id="imagen-incidencia">
-                </div>
-                <div class="elemento-formulario">
-                    <input type="submit" value="Enviar incidencia">
-                    <input type="reset" value="Borrar formulario">
-                </div>
-            </legend>
+                <legend>Nueva incidencia</legend>
+                    
+                    <div class="elemento-formulario">
+                        <label for="profesor">Profesor *:</label>
+                        <input name="profe" type="text" id="profesor" placeholder="Escribe su nombre aquí"  required>
+                    </div>
+                    <div class="elemento-formulario">
+                        <label for="correo">Correo electrónico *:</label>
+                        <input name="mail" type="email" id="correo" placeholder="Escribe tu correo aquí" required>
+                    </div>
+                    <div class="elemento-formulario">
+                        <label for="departamento">Departamento *:</label>
+                        <select name="departament" type="text" id="departamento" required>
+                            <option selected disabled>Seleccione departamento</option>
+                            <option value="">Informática</option>
+                            <option value="">Base de Datos</option>
+                            <option value="">Programación</option>
+                            <option value="">Sistemas Informáticos</option>
+                            <option value="">Lenguaje de Marcas</option>
+                            <option value="">IPE1</option>
+                            <option value="">Digitalización</option>
+                            <option value="">Sostenibilidad</option>
+                        </select>
+                    </div>
+                    <div class="elemento-formulario">
+                        <label for="aula">Aula *:</label>
+                        <input name="classroom" type="text" id="aula" placeholder="Indique el aula de la incidencia" required>
+                    </div>
+                    <div class="elemento-formulario">
+                        <label for="dia">Día de la incidencia *:</label>
+                        <input name="day" type="date" id="dia"  required>
+                    </div>
+                    <div class="elemento-formulario">
+                        <label for="hora">Hora de la incidencia *:</label>
+                        <input name="hour" type="time" id="hora" required>
+                    </div>
+                    <div class="elemento-formulario">
+                        <label for="descripcion">Descripción de la incidencia *:</label>
+                        <textarea name="description" id="descripcion" required></textarea>
+                    </div>
+                    <div class="elemento-formulario">
+                        <label for="imagen">Imagen de la incidencia (opcional):</label>
+                        <input name="imagen" type="file" id="imagen" accept="image/*">
+                    </div>
+                    <div class="elemento-formulario">
+                        <input type="submit" value="Enviar incidencia">
+                        <input type="reset" value="Borrar formulario">
+                    </div>
             </fieldset>
         </form>
 
     </main>
 
     <footer class="pie">
-        <a href="https://www.facebook.com/cpifpalanturing"><img class="facebook" href="imagenes/Facebook.png" alt="Face"></a>
-        <a href="https://x.com/cpifpalanturing"><img class="twitter" href="imagenes/Twitter.png" alt="X"></a>
-        <a href="https://www.instagram.com/cpifpalanturing/"><img class="instagram" href="imagenes/Insta.png"alt="Insta"></a>
-        <a href="https://www.youtube.com/@cpifpalanturing"><img class="youtube" href="imagenes/Youtube.png" alt="Yout"></a>
-        <a href="https://fpalanturing.es"><img class="web" href="imagenes/WWW.png" alt="WebSite"></a>
+        <h3>Síguenos</h3>
+        <a href="https://www.facebook.com/cpifpalanturing" class="enlaces">
+            <img class="imagenes" src="imagenes/Facebook.png" alt="Face">
+        </a>
+        <a href="https://x.com/cpifpalanturing" class="enlaces">
+            <img class="imagenes" src="imagenes/Twitter.png" alt="X">
+        </a>
+        <a href="https://www.instagram.com/cpifpalanturing/" class="enlaces">
+            <img class="imagenes" src="imagenes/Insta.png"alt="Insta">
+        </a>
+        <a href="https://www.youtube.com/@cpifpalanturing" class="enlaces">
+            <img class="imagenes" src="imagenes/Youtube.png" alt="Yout">
+        </a>
+        <a href="https://fpalanturing.es" class="enlaces">
+            <img class="imagenes" src="imagenes/WWW.png" alt="WebSite">
+        </a>
     </footer>
 </body>
 </html>
