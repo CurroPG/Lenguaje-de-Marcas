@@ -130,3 +130,21 @@ body{
     font-size: 14px;
     background: #2C3E50;
 }
+
+/* ==========================================
+   SECCION TIENDA
+   ========================================== */
+/* Para mayor especifidad, aplico las 2 clases a la vez */
+/* Explicación:
+    - La funcion min() elige el menor valor entre 1200px y el 95% del ancho disponible
+    - Así, en pantallas pequeñas ocupará el 95%, y en pantallas grandes nunca superará los 1200px
+    - Esto es equivalente a:
+        width: 95%;
+        max-width: 1200px;
+    Aplicamos además estos estilos a los elementos que tengan ambas clases: tienda y tarjeta.
+    Esto lo hacemos porque queremos aplicar un estilo general de .tarjeta (para las secciones normales del sitio)
+    y como queremos modificar solo esta seccion concreta, sin cambiar las demás, usmaos las dos clases.
+    */
+.tarjeta.tienda {
+    width: min(1200px, 95%);
+}
