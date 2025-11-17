@@ -209,16 +209,88 @@ body{
    SECCION GRID: Introduccion visual
    ========================================== */
 
-.contenendor-grid {
+.parent {
     display: grid;
-    grid-template-columns: 200px 200px 200px; /* tres columnas de altura fija */
-    grid-template-rows: 100px 100px; /* dos filas de altura fija*/
+    grid-template-columns: 200px 2fr 1fr;
+    grid-template-rows: 100px 1fr 60px;
     gap: 10px;
-    background-color: #eaeaea;
-    padding: 10px;
+    grid-template-areas: 
+    "header header  header"
+    "nav    main    aside"
+    "footer footer  footer"
 }
 
-.contenedor-grid:nth-child(1) {
+.area-header {
+    background-color: blue;
+    grid-area: header;
+}
+
+.area-nav {
+    background-color: aquamarine;
+    grid-area: nav;
+}
+
+.area-main {
+    background-color: green;
+    grid-area: main;
+}
+
+.area-aside {
+    background-color: red;
+    grid-area: aside;
+}
+
+.area-footer {
+    background-color: orange;
+    grid-area: footer;
+}
+
+.contenedor-grid {
+    display: grid;
+    /* grid-template-columns: 200px 200px 200px; /* tres columnas de altura fija */
+    /*grid-template-rows: 100px 100px; /* dos filas de altura fija*/
+    /* gap: 10px; */
+    grid-template-columns: repeat(3, 100px);
+    /*grid-template-columns: 1fr 1fr 1fr;*/
+    grid-template-rows: repeat(4, 100px);
+    row-gap: 5px;
+    column-gap: 25px;
+    /*gap: 5px 25px;*/
+    background-color: #eaeaea;
+    padding: 10px;
+    align-items: center;
+    justify-items: center;
+    box-sizing: border-box;
+}
+
+.item-grid {background-color: #e74c3c;}
+.contenedor-grid :nth-child(1) {
     background-color: #b60000;
-    
+}
+.contenedor-grid :nth-child(2) {
+    background-color: aquamarine;
+}
+.contenedor-grid :nth-child(3) {
+    background-color: yellowgreen;
+}
+.contenedor-grid :nth-child(4) {
+    background-color: goldenrod 
+}
+.contenedor-grid :nth-child(5) {
+    background-color: greenyellow;
+}
+.contenedor-grid :nth-child(6) {
+    background-color: olivedrab;
+}
+.contenedor-grid :nth-child(7) {
+    background-color: thistle;
+}
+.contenedor-grid :nth-child(8) {
+    background-color: blueviolet;
+}
+.contenedor-grid :nth-child(9) {
+    background-color: orangered;
+}
+.contenedor-grid :nth-child(10) {
+    background-color: orange;
 }
