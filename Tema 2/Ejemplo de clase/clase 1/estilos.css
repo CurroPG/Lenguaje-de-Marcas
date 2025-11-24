@@ -144,7 +144,7 @@ body{
     Aplicamos además estos estilos a los elementos que tengan ambas clases: tienda y tarjeta.
     Esto lo hacemos porque queremos aplicar un estilo general de .tarjeta (para las secciones normales del sitio)
     y como queremos modificar solo esta seccion concreta, sin cambiar las demás, usmaos las dos clases.
-    */
+*/
 .tarjeta.tienda {
     width: min(1200px, 95%);
 }
@@ -157,7 +157,7 @@ body{
 }
 
 .card {
-    width: 260px;
+    width: 100%;              /* Se adapte al ancho de la celda del grid */
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -170,7 +170,7 @@ body{
 .card-imagen {
     width: 100%;
     height: 100px;
-    object-fit: fill; /* ajustar la imagne sin recortarla */
+    object-fit: contain; /* ajustar la imagne sin recortarla */
     background-color: #f4f4f4;
     border-radius: 8px;
     margin-bottom: 8px;
@@ -207,7 +207,8 @@ body{
 
 /* ==========================================
    SECCION GRID: Introduccion visual
-   ========================================== */
+   ========================================== 
+*/
 
 .parent {
     display: grid;
@@ -304,4 +305,76 @@ body{
 }
 .contenedor-grid :nth-child(10) {
     background-color: orange;
+}
+
+/* ==========================================
+   SECCION JUEGOS: Continuación grid
+   ========================================== 
+*/
+
+.tarjeta.juegos {
+    width: min(1200px, 95%);
+}
+
+.lista-cards--grid {
+    display: grid;
+    /* grid-template-columns: minmax(220px, 1fr); */
+    /* minmax()
+        - MINIMO: 220px de ancho
+        -Si hay espacio disponible, se reparte (1fr) y se estira
+    */
+    /* grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));  */
+    /*  auto-fill intenta llenar el máximo número de filas 
+                  incluso si no hay suficientes cards, reserva huecos
+        auto-fit colapsa los huecos vacios si los hay
+                 las cards que haya se estiran para rellenar el espacio
+    */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 16px;
+}
+
+.card-destacada {
+    text-align: center;
+    grid-column: span 2;  /* ocupa 2 columnas cuando existan 2+ columnas */
+    background-color: #e74c3c;
+    border: 2px solid #b60000;
+}
+
+/* MEDIA QUIERIES para otros dispositivos */
+/* TABLET (aprox 768px - 1023px) */
+@media (768px <= width) and (width < 1024) {
+    .tarjeta.juegos {
+        width: min(1000px, 95%);
+    }
+
+    /* 2 columnas de juegos en tablet */
+    .lista-cards--grid{
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+    }
+
+    #contenido-principal {
+        padding-inline: 1.5rem;   /* Algo más de aire en los laterales */
+    }
+}
+
+/* Escritorio ( a partir de 1024px) */
+@media (width >= 1024px) {
+    .tarjeta.juegos {
+        width: min(1200px, 95%);
+    }
+
+    /* Catálogo tipo tienda con columnas variables:
+        - auto-fit: colapsa huecos vacios
+    */
+    .lista-cards--grid{
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    #contenido-principal {
+        padding-inline: 2rem;   /* Algo más de aire en los laterales */
+    }
+
+    .card-destacada {
+        grid-column: span 2;
+    }
 }
