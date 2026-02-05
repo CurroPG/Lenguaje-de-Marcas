@@ -131,9 +131,11 @@ body{
     background: #2C3E50;
 }
 
-/* ==========================================
-   SECCION TIENDA
-   ========================================== */
+/* 
+    ==========================================
+    SECCION TIENDA
+    ========================================== 
+*/
 /* Para mayor especifidad, aplico las 2 clases a la vez */
 /* Explicación:
     - La funcion min() elige el menor valor entre 1200px y el 95% del ancho disponible
@@ -205,9 +207,10 @@ body{
     border-radius: 8px;
 }
 
-/* ==========================================
-   SECCION GRID: Introduccion visual
-   ========================================== 
+/* 
+    ==========================================
+    SECCION GRID: Introduccion visual
+    ========================================== 
 */
 
 .parent {
@@ -325,9 +328,9 @@ body{
     */
     /* grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));  */
     /*  auto-fill intenta llenar el máximo número de filas 
-                  incluso si no hay suficientes cards, reserva huecos
+        incluso si no hay suficientes cards, reserva huecos
         auto-fit colapsa los huecos vacios si los hay
-                 las cards que haya se estiran para rellenar el espacio
+        las cards que haya se estiran para rellenar el espacio
     */
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
     gap: 16px;
