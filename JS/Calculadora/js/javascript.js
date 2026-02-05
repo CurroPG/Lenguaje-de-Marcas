@@ -1,3 +1,17 @@
+let valorActual = "0";           // Lo que se ve en pantalla
+let valorAnterior = null;        // Numero guardado antes de la operacion
+let operadorActual = null;       // +, -, *, / 
+let resultadoMostrado = false;   // Para saber si hay que empezar un numero nuevo  
+
+
+const botonesNumeros = [...document.querySelectorAll(".numero")]; //Devuelve un Array a partir de un nodelist
+
+for (let i = 0; i < botonesNumeros.length; i++){
+    botonesNumeros[i].addEventListener("click", () => {
+        mostrarNumeroPantalla(botonesNumeros[i].textContent);
+    });
+}
+
 /**
  * @brief Ejecuta la inicialización de la calculadora una vez que el DOM está completamente cargado.
  *
