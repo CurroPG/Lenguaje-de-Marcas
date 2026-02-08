@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Pagina para repasar para el examen">
+    <link href="estilos.css" rel="stylesheet">
+    <title>Repaso examen</title>
+</head>
+
+<body>
+    <header class="cabecera">
+        <div class="brand">
+            <h1 class="titulo">Deportes Guerra</h1>
+            <p class="subtitulo">Campo, playa y sierra</p>
+        </div> 
+    <nav class="menu">
+        <li><a href="../Index.html"></a>Página principal</li>
+        <li><a href="contacto.html"></a>Quiénes somos</li>
+        <li><a href="copinsa.html"></a>Copinsa</li>
+        <li><a href="contrato.html"></a>Trabaja con nosotros</li>
+    </nav>
+
+    </header>
+
+    <main>
+        <h2 class="contact">Envíanos tu currículum</h2>
+        <div class="formulario-contacto">
+            <form action="contacto.html" name="contact" method="post" autocomplete="off">
+
+                <div class="form-row">
+                    <label for="name">Nombre: *</label>
+                <input type="text" id="name" name="nombre" placeholder="Escribe tu nombre aquí." required>
+                </div>
+
+                <div class="form-row">
+                    <label for="correo">Correo electrónico: *</label>
+                <input type="text" id="correo" name="mail" placeholder="Escribe tu correo electrónico aquí." required>
+                </div>
+
+                <div class="form-row">
+                    <label for="telefono">Teléfono: *</label>
+                <input type="text" id="telefono" name="number" placeholder="Escribe tu telefono aquí.">
+                </div>
+
+                <div class="form-row">
+                    <label for="AdjuntarCV">Adjuntar CV (PDF máximo 2MB): *</label>
+                    <input type="file" id="AdjuntarCV" placeholder="* Solo archivos PDF de máximo 2 MB.">
+                </div>
+
+                <div class="botones">
+                    <input type="submit" value="Enviar">
+                    <input type="reset" value="Resetear">
+                </div>
+            </form>
+        </div>
+
+    </main>
+
+    <footer class="pie">
+        <p>&copy; 2024 Deportes Guerra - Todos los derechos reservados.</p>
+        <a href=""><img src="" alt=""></a>
+        <a href=""><img src="" alt=""></a>
+        <a href=""><img src="" alt=""></a>
+        <a href=""><img src="" alt=""></a>
+    </footer>
+</body>
+
+</html>
