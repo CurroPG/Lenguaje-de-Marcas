@@ -151,7 +151,7 @@ function calcularOperacion() {
             break;
         case "-":
             resultado = num1 - num2;
-            break;ç
+            break;
         case "x":
             resultado = num1 * num2;
             break;
@@ -159,6 +159,12 @@ function calcularOperacion() {
             if(num2 === 0){
                 valorActual = "Error";
                 // Ponerlo en rojo
+                // let classnames = pantalla.getAttribute("class").split(" ");
+                // classnames[1] = "color-error";
+                // pantalla.className = classnames.join(" "); 
+                // actualizarPantalla();
+                pantalla.classList.replace("color-normal", "color-error");
+                actualizarPantalla();
                 return;
             }
             resultado = num1 / num2;
@@ -178,7 +184,7 @@ function calcularOperacion() {
  *
  */
 function pantallaColorNormal() { 
-
+    pantalla.className = "pantalla color-normal";
 }
 /**
  * @brief Borra el número introducido actualmente en la pantalla.
@@ -236,22 +242,37 @@ function operacionInmediata(operacion) {
  *
  */
 function aplicarColorResultado(operador) { 
-    let classnames = pantalla.getAttribute("class").split(" ");  // ["pantalla", "color-normal"]
+    // let classnames = pantalla.getAttribute("class").split(" ");  // ["pantalla", "color-normal"]
+    // switch (operador) {
+    //     case "+":
+    //         classnames[1] = "color-suma";
+    //         break;
+    //     case "-":
+    //         classnames[1] = "color-resta";
+    //         break;
+    //     case "x":
+    //         classnames[1] = "color-multiplicacion";
+    //         break;
+    //     case "/":
+    //         classnames[1] = "color-division";
+    //         break;
+    // }
+    // pantalla.className = classnames.join(" ");
+    pantallaColorNormal();
     switch (operador) {
         case "+":
-            classnames[1] = "color-suma";
+            pantalla.classList.replace("color-normal", "color-suma");
             break;
         case "-":
-            classnames[1] = "color-resta";
+            pantalla.classList.replace("color-normal", "color-resta");
             break;
         case "x":
-            classnames[1] = "color-multiplicacion";
+            pantalla.classList.replace("color-normal", "color-multiplicacion");
             break;
         case "/":
-            classnames[1] = "color-division";
+            pantalla.classList.replace("color-normal", "color-division");
             break;
     }
-    pantalla.className = classnames.join(" ");
 }
 
 /**
