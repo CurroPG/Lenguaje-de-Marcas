@@ -6,6 +6,8 @@ let resultadoMostrado = false;   // Para saber si hay que empezar un numero nuev
 
 const botonesNumeros = [...document.querySelectorAll(".numero")]; //Devuelve un Array a partir de un nodelist
 const pantalla = document.getElementById("pantalla");
+const borrarPantalla = document.getElementById("borrar-todo");
+borrarPantalla.addEventListener("click", borrarTodo);
 const botonesOperadores = [...document.querySelectorAll(".operacion")];
 const botonIgual = document.getElementById("igual");
 
@@ -203,7 +205,12 @@ function borrarEntrada() {
  *
  */
 function borrarTodo() { 
-
+    valorActual = "0";
+    valorAnterior = null; 
+    operadorActual = null; 
+    resultadoMostrado = false;
+    pantallaColorNormal();
+    actualizarPantalla();
 }
 /**
  * @brief Elimina el último carácter del número mostrado en pantalla.
