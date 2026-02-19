@@ -8,6 +8,8 @@ const botonesNumeros = [...document.querySelectorAll(".numero")]; //Devuelve un 
 const pantalla = document.getElementById("pantalla");
 const borrarPantalla = document.getElementById("borrar-todo");
 borrarPantalla.addEventListener("click", borrarTodo);
+const borrarCE = document.getElementById("borrar-entrada");
+borrarCE.addEventListener("click", borrarEntrada);
 const botonesOperadores = [...document.querySelectorAll(".operacion")];
 const botonIgual = document.getElementById("igual");
 
@@ -195,7 +197,9 @@ function pantallaColorNormal() {
  *
  */
 function borrarEntrada() { 
-
+    valorActual = "0";
+    pantallaColorNormal();
+    actualizarPantalla();
 }
 /**
  * @brief Restablece completamente la calculadora a su estado inicial.
