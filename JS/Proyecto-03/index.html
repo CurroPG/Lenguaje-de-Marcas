@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piedra, Papel, Tijera, Lagarto, Spock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="estilos.css" />
+</head>
+
+<body>
+
+    <header>
+        <h1 class="titulo-juego">Piedra · Papel · Tijera · Lagarto · Spock</h1>
+        <p class="subtitulo-juego">El juego definitivo</p>
+    </header>
+
+    <main id="main" style="opacity:1">
+
+        <!-- Fila superior: Elige tu jugada + Batalla -->
+        <div class="paneles-arriba">
+
+            <!-- Panel izquierdo: selección de jugada -->
+            <section class="panel-seleccion-jugada">
+                <h2>Elige tu jugada</h2>
+                <div class="contenedor-elecciones-juego">
+
+                    <button class="boton-eleccion-jugada" id="boton-piedra">
+                        <span class="icono-jugada">🪨</span>
+                        <span>Piedra</span>
+                    </button>
+
+                    <button class="boton-eleccion-jugada" id="boton-papel">
+                        <span class="icono-jugada">📄</span>
+                        <span>Papel</span>
+                    </button>
+
+                    <button class="boton-eleccion-jugada" id="boton-tijera">
+                        <span class="icono-jugada">✂️</span>
+                        <span>Tijera</span>
+                    </button>
+
+                    <button class="boton-eleccion-jugada" id="boton-lagarto">
+                        <span class="icono-jugada">🦎</span>
+                        <span>Lagarto</span>
+                    </button>
+
+                    <button class="boton-eleccion-jugada" id="boton-spock">
+                        <span class="icono-jugada">🖖</span>
+                        <span>Spock</span>
+                    </button>
+
+                </div>
+            </section>
+
+            <!-- Panel derecho: batalla -->
+            <section class="panel-batalla">
+                <h2>Batalla</h2>
+                <div class="contenedor-jugadores">
+
+                    <div class="jugador">
+                        <p class="etiqueta-jugador">Tú</p>
+                        <div class="mostrar-jugada" id="jugada-jugador">
+                            <span class="placeholder">?</span>
+                        </div>
+                    </div>
+
+                    <div class="vs-circle">VS</div>
+
+                    <div class="jugador">
+                        <p class="etiqueta-jugador">CPU</p>
+                        <div class="mostrar-jugada" id="jugada-cpu">
+                            <span class="placeholder">?</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+        <!-- Fin paneles-arriba -->
+
+        <!-- Fila inferior: Estadísticas -->
+        <div class="paneles-abajo" style="grid-template-columns: 1fr;">
+
+            <section class="contenedor-resultado">
+                <h2>Estadísticas del juego</h2>
+                <div class="resultados">
+                    <p class="mensaje-resultado" id="mensaje-resultado"></p>
+                    <div class="estadisticas-juego">
+
+                        <div class="panel-estadistica">
+                            <span class="valor-estadistica" id="contador-victorias">0</span>
+                            <span class="etiqueta-estadistica">Victorias</span>
+                        </div>
+
+                        <div class="panel-estadistica">
+                            <span class="valor-estadistica" id="contador-derrotas">0</span>
+                            <span class="etiqueta-estadistica">Derrotas</span>
+                        </div>
+
+                        <div class="panel-estadistica">
+                            <span class="valor-estadistica" id="contador-empates">0</span>
+                            <span class="etiqueta-estadistica">Empates</span>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <!-- Fin paneles-abajo -->
+
+    </main>
+
+    <footer>
+        <p>Proyecto evaluación RA 03 - Lenguajes de marcas y sistemas de gestión de información</p>
+        <p>
+            <strong>Proyecto realizado por:</strong>
+            👉 Curro Portillo Guerrero 👈
+            (Declaro que no he usado IA en el proyecto)
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
