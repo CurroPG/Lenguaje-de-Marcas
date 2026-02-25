@@ -5,12 +5,36 @@ let resultadoMostrado = false;   // Para saber si hay que empezar un numero nuev
 
 
 const botonesNumeros = [...document.querySelectorAll(".numero")]; //Devuelve un Array a partir de un nodelist
+const pantalla = document.getElementById("pantalla");
+const borrarPantalla = document.getElementById("borrar-todo");
+borrarPantalla.addEventListener("click", borrarTodo);
+const borrarCE = document.getElementById("borrar-entrada");
+borrarCE.addEventListener("click", borrarEntrada);
+const botonesOperadores = [...document.querySelectorAll(".operacion")];
+const botonIgual = document.getElementById("igual");
 
-for (let i = 0; i < botonesNumeros.length; i++){
-    botonesNumeros[i].addEventListener("click", () => {
-        mostrarNumeroPantalla(botonesNumeros[i].textContent);
+// for (let i = 0; i < botonesNumeros.length; i++){
+//     botonesNumeros[i].addEventListener("click", () => {
+//         mostrarNumeroPantalla(botonesNumeros[i].textContent);
+//     });
+// }
+
+//Método foreach [Arrays]
+botonesNumeros.forEach(boton => {
+    boton.addEventListener("click", () => {
+        mostrarNumeroPantalla(boton.textContent);
     });
-}
+});
+
+botonesOperadores.forEach(boton => {
+    boton.addEventListener("click", () => {
+        manejarOperador(boton.textContent);
+    });
+});
+
+botonIgual.addEventListener("click", calcularOperacion)
+
+
 
 /**
  * @brief Ejecuta la inicialización de la calculadora una vez que el DOM está completamente cargado.
@@ -56,7 +80,7 @@ function habilitarPunto(){
 *
 */
 function actualizarPantalla() {
-
+    pantalla.textContent = valorActual;
 }
 
 
@@ -73,7 +97,15 @@ function actualizarPantalla() {
  *
  */
 function mostrarNumeroPantalla(numero) { 
-
+    if(resultadoMostrado) {
+        pantalla.textContent = valorActual;
+        resultadoMostrado = false;
+    } else if(valorActual === "0") {
+        valorActual = numero;
+    } else {
+        valorActual += numero;
+    }
+    actualizarPantalla();
 }
 
 /**
@@ -98,7 +130,10 @@ function mostrarPuntoPantalla() {
  *
  */
 function manejarOperador(operador) { 
-
+    operadorActual = operador;
+    valorAnterior = valorActual;
+    valorActual = "0";
+    resultadoMostrado = false;
 }
 
 /**
@@ -109,7 +144,41 @@ function manejarOperador(operador) {
  *
  */
 function calcularOperacion() { 
+    if(operadorActual === null || valorAnterior === null) return;
+    let num1 = parseFloat(valorAnterior);
+    let num2 = parseFloat(valorActual);
+    let resultado;
 
+    switch (operadorActual) {
+        case "+":
+            resultado = num1 + num2;
+            break;
+        case "-":
+            resultado = num1 - num2;
+            break;
+        case "x":
+            resultado = num1 * num2;
+            break;
+        case "/":
+            if(num2 === 0){
+                valorActual = "Error";
+                // Ponerlo en rojo
+                // let classnames = pantalla.getAttribute("class").split(" ");
+                // classnames[1] = "color-error";
+                // pantalla.className = classnames.join(" "); 
+                // actualizarPantalla();
+                pantalla.classList.replace("color-normal", "color-error");
+                actualizarPantalla();
+                return;
+            }
+            resultado = num1 / num2;
+            break;
+    }
+    valorActual = resultado.toString();
+    aplicarColorResultado(operadorActual);
+    actualizarPantalla();
+    resultadoMostrado = true;
+    // Aplicar el color del resultado de la operación
 }
 
 /**
@@ -119,7 +188,7 @@ function calcularOperacion() {
  *
  */
 function pantallaColorNormal() { 
-
+    pantalla.className = "pantalla color-normal";
 }
 /**
  * @brief Borra el número introducido actualmente en la pantalla.
@@ -128,7 +197,9 @@ function pantallaColorNormal() {
  *
  */
 function borrarEntrada() { 
-
+    valorActual = "0";
+    pantallaColorNormal();
+    actualizarPantalla();
 }
 /**
  * @brief Restablece completamente la calculadora a su estado inicial.
@@ -138,7 +209,12 @@ function borrarEntrada() {
  *
  */
 function borrarTodo() { 
-
+    valorActual = "0";
+    valorAnterior = null; 
+    operadorActual = null; 
+    resultadoMostrado = false;
+    pantallaColorNormal();
+    actualizarPantalla();
 }
 /**
  * @brief Elimina el último carácter del número mostrado en pantalla.
@@ -177,7 +253,37 @@ function operacionInmediata(operacion) {
  *
  */
 function aplicarColorResultado(operador) { 
-
+    // let classnames = pantalla.getAttribute("class").split(" ");  // ["pantalla", "color-normal"]
+    // switch (operador) {
+    //     case "+":
+    //         classnames[1] = "color-suma";
+    //         break;
+    //     case "-":
+    //         classnames[1] = "color-resta";
+    //         break;
+    //     case "x":
+    //         classnames[1] = "color-multiplicacion";
+    //         break;
+    //     case "/":
+    //         classnames[1] = "color-division";
+    //         break;
+    // }
+    // pantalla.className = classnames.join(" ");
+    pantallaColorNormal();
+    switch (operador) {
+        case "+":
+            pantalla.classList.replace("color-normal", "color-suma");
+            break;
+        case "-":
+            pantalla.classList.replace("color-normal", "color-resta");
+            break;
+        case "x":
+            pantalla.classList.replace("color-normal", "color-multiplicacion");
+            break;
+        case "/":
+            pantalla.classList.replace("color-normal", "color-division");
+            break;
+    }
 }
 
 /**
