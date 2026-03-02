@@ -24,7 +24,6 @@ let victorias = 0;
 let derrotas = 0;
 let empates = 0;
 
-const keys = Object.keys(elecciones);
 /**
  * @brief Inicializa el juego configurando los elementos, estados y eventos necesarios.
  *
