@@ -1,3 +1,30 @@
+"use strict";
+const elecciones = {
+    piedra: ["🪨", "lagarto", "tijera"],
+    papel: ["📄", "piedra", "spock"],
+    tijera: ["✂️", "papel", "lagarto"],
+    lagarto: ["🦎", "papel", "spock"],
+    spock: ["🖖", "tijera", "piedra"]
+};
+
+//botones de cada opcion enlazados con sus botones del HTML
+const botonPiedra = document.getElementById("piedra");
+const botonPapel = document.getElementById("papel");
+const botonTijera = document.getElementById("tijera");
+const botonLagarto = document.getElementById("lagarto");
+const botonSpock = document.getElementById("spock");
+
+//valores de los botones para mostrar por pantalla
+const jugadaJugador = document.getElementById("jugada-jugador");
+const jugadaCPU = document.getElementById("jugada-cpu");
+const mensajeResultado = document.getElementById("mensaje-resultado");
+
+//contadores de victorias, derrotas y empates
+let victorias = 0;
+let derrotas = 0;
+let empates = 0;
+
+const keys = Object.keys(elecciones);
 /**
  * @brief Inicializa el juego configurando los elementos, estados y eventos necesarios.
  *
@@ -8,7 +35,29 @@
  * @return {void} No devuelve ningún valor.
  */
 function inicializarJuego() {
-
+    //Botones vinculados con eventos
+    botonPiedra.addEventListener("click", () => {
+        jugar("piedra");
+    });
+    botonPapel.addEventListener("click", () => {
+        jugar("papel");
+    });
+    botonTijera.addEventListener("click", () => {
+        jugar("tijera");
+    });
+    botonLagarto.addEventListener("click", () => {
+        jugar("lagarto");
+    });
+    botonSpock.addEventListener("click", () => {
+        jugar("spock");
+    });
+    //Mostrar los toolTips
+    inicializarTooltips();
+    // Efecto de carga inicial suave
+    setTimeout(() => {
+        const contenedor = document.querySelector('main');
+        if (contenedor) contenedor.style.opacity = '1';
+    }, 100);
 }
 
 /**
@@ -36,7 +85,8 @@ function jugar(eleccionUsuario) {
  * @return {string} La elección de la CPU (por ejemplo: "piedra", "papel" o "tijera"...).
  */
 function obtenerEleccionCPU() {
-
+    const numeroAleatorio = Math.random()*6;
+    return keys[numeroAleatorio];
 }
 
 /**
@@ -65,7 +115,9 @@ function mostrarEleccion(display, eleccion, jugador) {
  * @return {void} No devuelve ningún valor.
  */
 function reiniciarDisplays() {
-
+    jugadaJugador.innerHTML = `<span class="placeholder">?</span>`;
+    jugadaCPU.innerHTML = `<span class="placeholder">?</span>`;
+    mensajeResultado.innerHTML = "";
 }
 
 /**
@@ -121,8 +173,17 @@ function actualizarContadores() {
  * @return {void} No devuelve ningún valor.
  */
 function inicializarTooltips() {
-
+    botonPiedra.setAttribute("title", "Piedra vence a: Tijera y Lagarto");
+    botonPapel.setAttribute("title", "Papel vence a: Piedra y Spock");
+    botonTijera.setAttribute("title", "Tijera vence a: Papel y Lagarto");
+    botonLagarto.setAttribute("title", "Lagarto vence a: Papel y Spock");
+    botonSpock.setAttribute("title", "Spock vence a: Tijera y Piedra");
 }
+
+//Funcion para inicializar el juego con DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    inicializarJuego();
+});
 
 // ── PARTE OPTATIVA ──────────────────────────────────────────────────────────
 
