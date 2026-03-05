@@ -27,6 +27,10 @@ let victorias = 0;
 let derrotas = 0;
 let empates = 0;
 
+//botones de mostrar las reglas y de reiniciar el juego
+const botonReiniciar = document.getElementById("reiniciar");
+const botonReglas = document.getElementById("reglas");
+
 //valores de las keys de elecciones (piedra, papel, tijera, lagarto, spock)
 const keys = Object.keys(elecciones);
 /**
@@ -54,6 +58,12 @@ function inicializarJuego() {
     });
     botonSpock.addEventListener("click", () => {
         jugar("spock");
+    });
+    botonReglas.addEventListener("click", () => {
+        mostrarReglas();
+    });
+    botonReiniciar.addEventListener("click", () => {
+        resetearJuego();
     });
     //Mostrar los toolTips
     inicializarTooltips();
@@ -231,7 +241,11 @@ document.addEventListener('DOMContentLoaded', () => {
  * @return {void} No devuelve ningún valor.
  */
 function mostrarReglas() {
-
+    console.log("Piedra vence a: Lagarto y Tijera");
+    console.log("Papel vence a: Piedra y Spock");
+    console.log("Tijera vence a: Papel y Lagarto");
+    console.log("Lagarto vence a: Papel y Spock");
+    console.log("Spock vence a: Tijera y Piedra");
 }
 
 /**
@@ -246,7 +260,15 @@ function mostrarReglas() {
  * @return {void} No devuelve ningún valor.
  */
 function resetearJuego() {
-
+    victorias = 0;
+    derrotas = 0;
+    empates = 0;
+    actualizarContadores();
+    reiniciarDisplays();
+    mensajeResultado.innerHTML = `El juego ha sido reiniciado`;
+    setTimeout(() => {
+        mensajeResultado.textContent = "";
+    }, 2000);
 }
 
 /**
