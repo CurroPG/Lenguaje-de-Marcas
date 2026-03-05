@@ -20,6 +20,9 @@ const jugadaCPU = document.getElementById("jugada-cpu");
 const mensajeResultado = document.getElementById("mensaje-resultado");
 
 //contadores de victorias, derrotas y empates
+const contadorVictorias = document.getElementById("contador-victorias");
+const contadorDerrotas = document.getElementById("contador-derrotas");
+const contadorEmpates = document.getElementById("contador-empates");
 let victorias = 0;
 let derrotas = 0;
 let empates = 0;
@@ -75,7 +78,11 @@ function inicializarJuego() {
  * @return {void} No devuelve ningún valor.
  */
 function jugar(eleccionUsuario) {
-
+    reiniciarDisplays();
+    const eleccionCPU = obtenerEleccionCPU();
+    mostrarEleccion(jugadaJugador, eleccionUsuario, "jugador");
+    mostrarEleccion(jugadaCPU, eleccionCPU, "CPU");
+    mostrarResultadoJugada(calcularResultadoJugada(eleccionUsuario, eleccionCPU), eleccionUsuario, eleccionCPU);
 }
 
 /**
@@ -86,7 +93,7 @@ function jugar(eleccionUsuario) {
  * @return {string} La elección de la CPU (por ejemplo: "piedra", "papel" o "tijera"...).
  */
 function obtenerEleccionCPU() {
-    const numeroAleatorio = Math.random()*6;
+    const numeroAleatorio = Math.floor(Math.random() * keys.length);
     return keys[numeroAleatorio];
 }
 
@@ -103,7 +110,13 @@ function obtenerEleccionCPU() {
  * @return {void} No devuelve ningún valor.
  */
 function mostrarEleccion(display, eleccion, jugador) {
-
+    display.innerHTML = "";
+    const spanTexto = document.createElement("span");
+    const spanEmoji = document.createElement("span");
+    spanTexto.textContent = eleccion;
+    spanEmoji.textContent = elecciones[eleccion][0];
+    display.appendChild(spanEmoji);
+    display.appendChild(spanTexto);
 }
 
 /**
@@ -133,7 +146,12 @@ function reiniciarDisplays() {
  * @return {string} El resultado de la ronda: "victoria", "derrota" o "empate".
  */
 function calcularResultadoJugada(usuario, cpu) {
-
+    if(usuario === cpu)
+        return "empate";
+    else if(elecciones[usuario][1] === cpu || elecciones[usuario][2] === cpu)
+        return "victoria";
+    else
+        return "derrota";
 }
 
 /**
@@ -149,7 +167,21 @@ function calcularResultadoJugada(usuario, cpu) {
  * @return {void} No devuelve ningún valor.
  */
 function mostrarResultadoJugada(resultado, usuario, cpu) {
-
+    mensajeResultado.classList.remove("ganador", "perdedor", "empate");
+    if (resultado === "victoria") {
+        mensajeResultado.textContent = `¡Ganaste! ${usuario} vence a ${cpu}`;
+        mensajeResultado.classList.add("ganador");
+        victorias++;
+    } else if (resultado === "derrota") {
+        mensajeResultado.textContent = `¡Perdiste! ${cpu} vence a ${usuario}`;
+        mensajeResultado.classList.add("perdedor");
+        derrotas++;
+    } else {
+        mensajeResultado.textContent = `¡Empate! los 2 escogieron ${usuario}`;
+        mensajeResultado.classList.add("empate");
+        empates++;
+    }
+    actualizarContadores();
 }
 
 /**
@@ -161,7 +193,9 @@ function mostrarResultadoJugada(resultado, usuario, cpu) {
  * @return {void} No devuelve ningún valor.
  */
 function actualizarContadores() {
-
+    contadorVictorias.textContent = victorias;
+    contadorDerrotas.textContent = derrotas;
+    contadorEmpates.textContent = empates;
 }
 
 /**
