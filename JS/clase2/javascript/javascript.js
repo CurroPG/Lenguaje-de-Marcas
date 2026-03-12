@@ -9,7 +9,7 @@ btnCargar.addEventListener("click", () => {
     lista.innerHTML = "";
 
     // 2) Lanzamos la petición: fetcj devuelve Promise<Response>
-    fetc("https://jsonplaceholder.typicode.com/users")
+    fetch("https://jsonplaceholder.typicode.com/users")
         .then(response => {
             //1er then manejo de la respuesta HTTP (status, ok, etc.)
             console.log("Respuesta: ", response);
@@ -20,7 +20,6 @@ btnCargar.addEventListener("click", () => {
                 throw new Error("Respuesta no ok, Código HTTP: " + response.status);
             }
             //A) Convertimos el body de la respuesta a JSON
-            console.log(response.json());
             // 4) convertimos el bofy de la respuesta a JSON: devuelve Promise<Array>
             return response.json();
         })
@@ -31,6 +30,19 @@ btnCargar.addEventListener("click", () => {
             estado.textContent = `Recibidos ${data.length}`;
 
             // 6) Pintamos en el DOM los usuarios recibidos
+            for (const u of data) {
+                const tarjeta = document.createElement("div");
+                tarjeta.className = "card";
+                tarjeta.innerHTML = `
+                    <strong>${u.name}</strong><br>
+                    <span>${u.email}</span><br>
+                    <small>${u.phone}</small>`;
+                lista.appendChild(tarjeta);
+            }
         })
-        .catch(err => console.error(err));
+        .catch(err => {
+            estado.textContent = "Error cargando usuarios";
+            estado.className = "error";
+            console.log(err);
+        });
 });
