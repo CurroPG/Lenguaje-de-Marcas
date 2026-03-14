@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // TODO: referencias a los botones y contenedores
     const botonPelicula = document.getElementById("btnPeliculas");
     const contenedorPelicula = document.getElementById("contPeliculas");
     const botonPersonaje = document.getElementById("btnPersonajes");
@@ -12,10 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
     botonPersonaje.addEventListener("click", () => {
         cargarPersonajes();
     });
-
-
-
-    // ─────────────────────────────────────────────────────────
 
     /**
      * @function cargarPeliculas
