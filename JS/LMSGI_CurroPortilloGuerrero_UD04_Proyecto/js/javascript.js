@@ -1,18 +1,18 @@
-/**
- * @file index.js
- * @description Página principal de Studio Ghibli. Carga películas y personajes
- *              desde la Ghibli API usando fetch y .then().
- * @author TU_NOMBRE_AQUI
- * @version 1.0
- */
-
 document.addEventListener("DOMContentLoaded", function () {
 
     // TODO: referencias a los botones y contenedores
+    const botonPelicula = document.getElementById("btnPeliculas");
+    const contenedorPelicula = document.getElementById("contPeliculas");
+    const botonPersonaje = document.getElementById("btnPersonajes");
+    const contenedorPersonaje = document.getElementById("contPersonajes");
 
-    // TODO: evento click para cargar películas
+    botonPelicula.addEventListener("click", () => {
+        cargarPeliculas();
+    });
+    botonPersonaje.addEventListener("click", () => {
+        cargarPersonajes();
+    });
 
-    // TODO: evento click para cargar personajes
 
 
     // ─────────────────────────────────────────────────────────
@@ -23,7 +23,19 @@ document.addEventListener("DOMContentLoaded", function () {
      * @returns {void}
      */
     function cargarPeliculas() {
-        // TODO
+        fetch("https://ghibliapi.vercel.app/films")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Error HTTP: " + response.status);
+                }
+                return response.json();
+            })
+            .then(data => {
+                mostrarPeliculas(data);
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 
     /**
@@ -33,7 +45,20 @@ document.addEventListener("DOMContentLoaded", function () {
      * @returns {void}
      */
     function mostrarPeliculas(peliculas) {
-        // TODO
+        contenedorPelicula.innerHTML = "";
+
+        for (const pelicula of peliculas) {
+            const tarjeta = document.createElement("div");
+            tarjeta.className = "tarjeta";
+            tarjeta.innerHTML = `
+            <img src="${pelicula.image}" alt="${pelicula.title}">
+            <h3>${pelicula.title}</h3>
+            <p>Director: ${pelicula.director}</p>
+            <p>Año: ${pelicula.release_date}</p>
+            <p>Puntuación: ${pelicula.rt_score}%</p>
+            `;
+            contenedorPelicula.appendChild(tarjeta);
+        }
     }
 
     /**
@@ -42,7 +67,19 @@ document.addEventListener("DOMContentLoaded", function () {
      * @returns {void}
      */
     function cargarPersonajes() {
-        // TODO
+        fetch("https://ghibliapi.vercel.app/people")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Error HTTP: " + response.status);
+                }
+                return response.json();
+            })
+            .then(data => {
+                mostrarPersonajes(data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     /**
@@ -52,7 +89,18 @@ document.addEventListener("DOMContentLoaded", function () {
      * @returns {void}
      */
     function mostrarPersonajes(personajes) {
-        // TODO
+        contenedorPersonaje.innerHTML = "";
+        for(const personaje of personajes){
+            const tarjeta = document.createElement("div");
+            tarjeta.className = "tarjeta";
+            tarjeta.innerHTML = `
+            <h3>${personaje.name}</h3>
+            <p>Género: ${personaje.gender}</p>
+            <p>Edad: ${personaje.age}</p>
+            <p>Películas donde aparece: </p>
+            `;
+            contenedorPersonaje.appendChild(tarjeta);
+        }
     }
 
 });
