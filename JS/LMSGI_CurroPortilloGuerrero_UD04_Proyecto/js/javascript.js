@@ -92,7 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
             <h3>${personaje.name}</h3>
             <p>Género: ${personaje.gender}</p>
             <p>Edad: ${personaje.age}</p>
-            <p>Películas donde aparece: </p>
             `;
             contenedorPersonaje.appendChild(tarjeta);
         }
