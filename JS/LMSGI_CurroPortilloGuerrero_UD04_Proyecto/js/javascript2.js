@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const contenedorLocations = document.getElementById("contLocations");
     const botonSpecies = document.getElementById("btnSpecies");
     const contenedorSpecies = document.getElementById("contSpecies");
+    const botonLocalizaciones = document.getElementById("filtroTerreno");
+    let valorSelect = "";
+    let Localizaciones = [];
 
     botonLocations.addEventListener("click", () => {
         cargarLocations();
@@ -13,6 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
         cargarSpecies();
     });
 
+    botonLocalizaciones.addEventListener("change", () => {
+        valorSelect = botonLocalizaciones.value;
+        mostrarLocations(Localizaciones, valorSelect);
+    })
+
     /**
      * @function cargarLocations
      * @description Hace una petición al endpoint /locations de la Ghibli API.
@@ -20,14 +28,15 @@ document.addEventListener("DOMContentLoaded", function () {
      */
     function cargarLocations() {
         fetch("https://ghibliapi.vercel.app/locations/")
-            .then(response =>{
-                if(!response.ok) {
+            .then(response => {
+                if (!response.ok) {
                     throw new Error("Error HTTP: " + response.status)
                 }
                 return response.json();
             })
             .then(data => {
-                mostrarLocations(data);
+                Localizaciones = data;
+                mostrarLocations(data, valorSelect);
             })
             .catch(err => {
                 console.log(err);
@@ -40,17 +49,19 @@ document.addEventListener("DOMContentLoaded", function () {
      * @param {Array} locations - Array de objetos localización devueltos por la API
      * @returns {void}
      */
-    function mostrarLocations(locations) {
+    function mostrarLocations(locations, filtro) {
         contenedorLocations.innerHTML = "";
         for (const localizacion of locations) {
-            const tarjeta = document.createElement("div");
-            tarjeta.className = "tarjeta";
-            tarjeta.innerHTML = `
-            <h3>${localizacion.name}</h3>
-            <p>Clima: ${localizacion.climate}</p>
-            <p>Terreno: ${localizacion.terrain}</p>
-            `;
-            contenedorLocations.appendChild(tarjeta);
+            if (filtro === localizacion.terrain.toLowerCase() || filtro === "") {
+                const tarjeta = document.createElement("div");
+                tarjeta.className = "tarjeta";
+                tarjeta.innerHTML = `
+                <h3>${localizacion.name}</h3>
+                <p>Clima: ${localizacion.climate}</p>
+                <p>Terreno: ${localizacion.terrain}</p>
+                `;
+                contenedorLocations.appendChild(tarjeta);
+            }
         }
     }
 
@@ -62,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function cargarSpecies() {
         fetch("https://ghibliapi.vercel.app/species/")
             .then(response => {
-                if(!response.ok){
+                if (!response.ok) {
                     throw new Error("Error HTTP: " + response.status)
                 }
                 return response.json();
