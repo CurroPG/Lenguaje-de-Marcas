@@ -159,4 +159,4 @@ Proyectos web con **HTML**, **CSS** y **JavaScript**.
 ---
 
 > 📌 *Módulo: Lenguaje de Marcas y Sistemas de Gestión de la Información (LMSGI)*  
-> 🎓 *Ciclo Formativo: Desarrollo de Aplicaciones Web (DAW)*
+> 🎓 *Ciclo Formativo: Desarrollo de Aplicaciones Multiplataforma (DAM)*
